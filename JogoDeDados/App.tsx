@@ -9,6 +9,15 @@ import {
 } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
+const frases: Record<number, string> = {
+  1: 'Pessimo !',
+  2: 'Você consegue!',
+  3: 'Melhore',
+  4: 'Continue assim!',
+  5: 'Vai Brasilll!',
+  6: 'Parabéns, você tirou 6!',
+};
+
 export default function App() {
   const [nome, setNome] = useState('');
   const [numeroDado, setNumeroDado] = useState(1);
@@ -26,20 +35,7 @@ export default function App() {
     const novoNumero = Math.floor(Math.random() * 6) + 1;
 
     setNumeroDado(novoNumero);
-
-    if (novoNumero === 1) {
-      setFrase('Pessimo !');
-    } else if (novoNumero === 2) {
-      setFrase('Você consegue!');
-    } else if (novoNumero === 3) {
-      setFrase('Melhore');
-    } else if (novoNumero === 4) {
-      setFrase('Continue assim!');
-    } else if (novoNumero === 5) {
-      setFrase('Vai Brasilll!');
-    } else {
-      setFrase('Parabéns, você tirou 6!');
-    }
+    setFrase(frases[novoNumero]);
   }
 
   return (
